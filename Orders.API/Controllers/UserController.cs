@@ -35,9 +35,9 @@ namespace Orders.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreateUserDto dto)
+        public async Task<IActionResult> Create(CreateUserDto dto)
         {
-            var savedId = _userService.Create(dto);
+            var savedId = await _userService.Create(dto);
             return Ok(GetResponse(savedId));
         }
 
